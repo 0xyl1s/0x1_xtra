@@ -2,6 +2,7 @@
 # encoding: utf-8
 # tested with ruby 1.9.2
 
+system "vlc &" if ARGV.empty?
 
 ARGV.each do |e_file|
   system("vlc #{e_file}")
