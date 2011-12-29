@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 
 help=$(cat <<'heredoc'
 \n>>>>>>>>>>>>>>>>>>>>ec1 usage<<<<<<<<<<<<<<<<<<<<\n
