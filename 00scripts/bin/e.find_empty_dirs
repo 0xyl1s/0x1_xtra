@@ -1,32 +1,16 @@
+#!/usr/bin/env ruby
+# encoding: utf-8
+# tested with ruby 1.9.3
 
-help=$(cat <<'heredoc'
-\n>>>>>>>>>>>>>>>>>>>>ec1 usage<<<<<<<<<<<<<<<<<<<<\n
-h takes one argument with which it filters the bash history
-\n<<<<<<<<<<<<<<<<<<<<ec1 usage>>>>>>>>>>>>>>>>>>>>\n
-h takes one argument with which it filters the bash history
-heredoc
-)
-
-if [ "$1" = '-h' ] || [ "$1" = '' ]; then
-    echo -e "$help";
-else
-    history |egrep --color -i $1
-fi
-
-#history |egrep --color -i $1
-
+system "find -type d -empty"
 
 # Project infos >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>># {{{
 # Project: Epiculture
-# Web: www.epiculture.org
 # Author: Pierre-Mael Cretinon
 # Email: projects2011@3eclipses.com
 # License: GNU GPLv3
 #
 # Notes:
-#the usage of the builtin command "history" is disabled inside scripts, don't use the shebang!! :
-#http://www.linuxquestions.org/questions/linux-newbie-8/usage-of-history-command-inside-shell-script-688247/
-#http://www.tldp.org/LDP/abs/html/special-chars.html
 #
 # License details:
 # <copyright/copyleft>
@@ -47,4 +31,4 @@ fi
 # 
 # </copyright/copyleft>
 # Project infos <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<# }}}
-#vim: ft=sh foldmethod=marker
+# vim: ft=ruby
