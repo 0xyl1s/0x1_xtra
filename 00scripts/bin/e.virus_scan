@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+# encoding: utf-8
+# tested with ruby 1.9.3
+
+system "clamscan -r"
+
+# ____________________________________________________________________
+# ####################### PROJECT EPICULTURE #########################
+# Sources, Infos & Contact : www.epiculture.org
+# Author: Pierre-Maël Crétinon
+# License: GNU GPLv3 ( www.epiculture.org/ec1_core/LICENSE )
+# Copyright: 2005-2012 Pierre-Maël Crétinon
+# ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+#vim: 
