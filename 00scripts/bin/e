@@ -9,7 +9,7 @@ module Ec1 module Users module Utils
 
 case ARGV.size
   when 0
-    system "gvim"
+    Editor.new.edit
   else
     ARGV.each do |e_file|
       Editor.new.edit(e_file)
