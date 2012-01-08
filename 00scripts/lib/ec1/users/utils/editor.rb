@@ -2,20 +2,27 @@
 # encoding: utf-8
 # tested with ruby 1.9.3
 
-require_relative "../lib/ec1/users/utils/editor.rb"
-
 module Ec1 module Users module Utils
 
+class Editor
+require 'ec1/lib/toolkit/standard.rb'
+include Ec1::Lib::Toolkit::Standard
 
-case ARGV.size
-  when 0
-    system "gvim"
-  else
-    ARGV.each do |e_file|
-      Editor.new.edit(e_file)
-    end
+def initialize
+  @ec1_user_editor=e__file_read(File.expand_path'~/.ec1/00mu/00data/editor').chomp
 end
 
+def edit(e_file)
+  print "editing #{e_file} : "
+  if e__is_a_file?("#{e_file}.ec1microsynched")
+    puts "ABORTED (#{e_file} is microsynched => #{e_file}.ec1microsynched)"
+  else
+    system "#{@ec1_user_editor} #{e_file}"
+    puts "OK"
+  end
+end
+
+end
 
 end end end
 
