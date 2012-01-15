@@ -1,27 +1,17 @@
+#!/usr/bin/env ruby
 # encoding: utf-8
 # tested with ruby 1.9.3
 
 module Ec1 module Users module Utils
+require_relative '../lib/ec1/users/utils/simple_tools.rb'
 
-class Editor
-require 'ec1/lib/toolkit/standard.rb'
-include Ec1::Lib::Toolkit::Standard
+#system "firefox &" if ARGV.empty?
 
-def initialize
-  @ec1_user_editor=e__file_read(File.expand_path'~/.ec1/00mu/00data/editor').chomp
-end
+abort "ERROR: please provide only one arguement: the number of desired characters of your randomly generated string" unless ARGV.size == 1
+number_of_characters = ARGV.join
 
-def edit(e_file=nil)
-  print "editing #{e_file} : "
-  if e__is_a_file?("#{e_file}.ec1microsynched")
-    puts "ABORTED (#{e_file} is microsynched => #{e_file}.ec1microsynched)"
-  else
-    system "#{@ec1_user_editor} #{e_file}"
-    puts "OK"
-  end
-end
+RandomString.new(number_of_characters, true)
 
-end
 
 end end end
 

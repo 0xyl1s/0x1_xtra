@@ -2,26 +2,23 @@
 # tested with ruby 1.9.3
 
 module Ec1 module Users module Utils
+require_relative '../../ec1_lib.helper.rb'
 
-class Editor
-require 'ec1/lib/toolkit/standard.rb'
-include Ec1::Lib::Toolkit::Standard
+class RandomString
 
-def initialize
-  @ec1_user_editor=e__file_read(File.expand_path'~/.ec1/00mu/00data/editor').chomp
-end
-
-def edit(e_file=nil)
-  print "editing #{e_file} : "
-  if e__is_a_file?("#{e_file}.ec1microsynched")
-    puts "ABORTED (#{e_file} is microsynched => #{e_file}.ec1microsynched)"
+def initialize(i_length_raw, b_lowercase=false)
+  if e__is_an_integer?(i_length_raw)
+    i_length = i_length_raw
+  elsif e__string_contain_only_numbers?(i_length_raw)
+    i_length = i_length_raw.to_i
   else
-    system "#{@ec1_user_editor} #{e_file}"
-    puts "OK"
+    abort "ERROR: please use an integer (provided #{i_length_raw} is: #{i_length_raw.class})"
   end
+  print e__random_string(i_length, b_lowercase)
 end
 
 end
+
 
 end end end
 
