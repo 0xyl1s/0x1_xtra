@@ -7,8 +7,15 @@ require_relative '../lib/ec1/users/utils/simple_tools.rb'
 
 #system "firefox &" if ARGV.empty?
 
-abort "ERROR: please provide only one arguement: the number of desired characters of your randomly generated string" unless ARGV.size == 1
-number_of_characters = ARGV.join
+
+case ARGV.size
+when 0
+  number_of_characters = nil
+when 1
+  number_of_characters = ARGV.join
+else
+  abort "ERROR: too many arguments, please only provide the number of characters contained on the generated random string."
+end
 
 RandomString.new(number_of_characters, true)
 
