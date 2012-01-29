@@ -1,11 +1,11 @@
 # encoding: utf-8
 # tested with ruby 1.9.3
 
-ec1_lib_path = File.join(File.expand_path('~'), '.ec1/00mu/00sourcing/ec1_lib')
+x_lib_path = File.join(File.expand_path('~'), '.0x1/00mu/00sourcing/0x1_lib')
 
-# loading ec1 standard lib
-require_relative "#{ec1_lib_path}/ec1/lib/toolkit/standard.rb"
-include Ec1::Lib::Toolkit::Standard
+# loading 0x1 standard lib
+require_relative "#{x_lib_path}/0x1/lib/toolkit/standard.rb"
+include X::Lib::Toolkit::Standard
 
 
 # ____________________________________________________________________

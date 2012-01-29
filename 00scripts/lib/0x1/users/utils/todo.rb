@@ -2,11 +2,11 @@
 # encoding: utf-8
 # tested with ruby 1.9.3
 
-module Ec1 module Users module Utils
+module X module Users module Utils
 
 class Todo
-require 'ec1/lib/toolkit/standard.rb'
-include Ec1::Lib::Toolkit::Standard
+require '0x1/lib/toolkit/standard.rb'
+include X::Lib::Toolkit::Standard
 
 def initialize
   @user_todo_basedir=File.expand_path('~/_/00todo')

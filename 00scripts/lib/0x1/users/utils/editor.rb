@@ -1,22 +1,22 @@
 # encoding: utf-8
 # tested with ruby 1.9.3
 
-module Ec1 module Users module Utils
+module X module Users module Utils
 
 class Editor
-require 'ec1/lib/toolkit/standard.rb'
-include Ec1::Lib::Toolkit::Standard
+require '0x1/lib/toolkit/standard.rb'
+include X::Lib::Toolkit::Standard
 
 def initialize
-  @ec1_user_editor=e__file_read(File.expand_path'~/.ec1/00mu/00data/editor').chomp
+  @x_user_editor=e__file_read(File.expand_path'~/.0x1/00mu/00data/editor').chomp
 end
 
 def edit(e_file=nil)
   print "editing #{e_file} : "
-  if e__is_a_file?("#{e_file}.ec1microsynched")
-    puts "ABORTED (#{e_file} is microsynched => #{e_file}.ec1microsynched)"
+  if e__is_a_file?("#{e_file}.0x1microsynched")
+    puts "ABORTED (#{e_file} is microsynched => #{e_file}.0x1microsynched)"
   else
-    system "#{@ec1_user_editor} #{e_file}"
+    system "#{@x_user_editor} #{e_file}"
     puts "OK"
   end
 end

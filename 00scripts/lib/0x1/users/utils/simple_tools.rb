@@ -1,8 +1,8 @@
 # encoding: utf-8
 # tested with ruby 1.9.3
 
-module Ec1 module Users module Utils
-require_relative '../../ec1_lib.helper.rb'
+module X module Users module Utils
+require_relative '../../0x1_lib.helper.rb'
 
 class RandomString
 
