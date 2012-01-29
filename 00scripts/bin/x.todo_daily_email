@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 
-cat ~/_/00todo/todo | mail -s "TODO $(date +%Y-%m-%d)" $(cat ~/.ec1/00mu/00data/user.email)
+cat ~/_/00todo/todo | mail -s "TODO $(date +%Y-%m-%d)" $(cat ~/.0x1/00mu/00data/user.email)
 
 # ____________________________________________________________________
 # >>>>>  projet epiculture/ec1   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>#{{{
