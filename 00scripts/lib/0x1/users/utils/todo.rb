@@ -10,7 +10,7 @@ include X::Lib::Toolkit::Standard
 
 def initialize
   @user_todo_basedir=File.expand_path('~/_/00todo')
-  abort "ERROR: can't access user's todo directory (#{@user_todo_basedir})" unless e__is_a_dir?(@user_todo_basedir)
+  abort "ERROR: can't access user's todo directory (#{@user_todo_basedir})" unless x__is_a_dir?(@user_todo_basedir)
 end
 
 def guialarm(message_raw, title_raw='', timeout='15')
@@ -30,8 +30,8 @@ class Emergency < Todo
 def initialize
   super
   user_todo_file="#{@user_todo_basedir}/emergency"
-  abort "ERROR: can't access user's emergency file (#{user_todo_file})" unless e__is_a_file?(user_todo_file)
-  @user_todo_content=e__file_read(user_todo_file)
+  abort "ERROR: can't access user's emergency file (#{user_todo_file})" unless x__is_a_file?(user_todo_file)
+  @user_todo_content=x__file_read(user_todo_file)
 end
 
 

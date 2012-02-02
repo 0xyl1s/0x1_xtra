@@ -8,12 +8,12 @@ require '0x1/lib/toolkit/standard.rb'
 include X::Lib::Toolkit::Standard
 
 def initialize
-  @x_user_editor=e__file_read(File.expand_path'~/.0x1/00mu/00data/editor').chomp
+  @x_user_editor=x__file_read(File.expand_path'~/.0x1/00mu/00data/editor').chomp
 end
 
 def edit(e_file=nil)
   print "editing #{e_file} : "
-  if e__is_a_file?("#{e_file}.0x1microsynched")
+  if x__is_a_file?("#{e_file}.0x1microsynched")
     puts "ABORTED (#{e_file} is microsynched => #{e_file}.0x1microsynched)"
   else
     system "#{@x_user_editor} #{e_file}"
