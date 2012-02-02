@@ -7,6 +7,7 @@ require_relative '../../0x1_lib.helper.rb'
 class RandomString
 
 def initialize(i_length_raw=nil, b_lowercase=false)
+  x__load_modules([:standard])
   if i_length_raw.nil? or x__is_a_blank_string?(i_length_raw)
     i_length = 13
   elsif x__is_an_integer?(i_length_raw)

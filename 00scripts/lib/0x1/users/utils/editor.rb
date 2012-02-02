@@ -2,12 +2,12 @@
 # tested with ruby 1.9.3
 
 module X module Users module Utils
+require_relative '../../0x1_lib.helper.rb'
 
 class Editor
-require '0x1/lib/toolkit/standard.rb'
-include X::Lib::Toolkit::Standard
 
 def initialize
+  x__load_modules([:standard])
   @x_user_editor=x__file_read(File.expand_path'~/.0x1/00mu/00data/editor').chomp
 end
 

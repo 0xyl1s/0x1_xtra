@@ -2,63 +2,73 @@
 # tested with ruby 1.9.2
 
 module X module Users module Utils
-require '0x1/lib/toolkit/standard.rb'
-include X::Lib::Toolkit::Standard
+require_relative '../../0x1_lib.helper.rb'
 
 class SshAgent
-  def initialize
-    abort unless check_agent
-  end
-  def add(certificate)
-  end
-  def list_certificates
-    puts "\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-    puts "~~  certificates for current ssh-agent                    ~~"
-    puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-    puts syscall_certificates_list
-    puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\n"
-  end
-  def agent_infos
-    puts "SSH_AGENT_PID = #{ENV['SSH_AGENT_PID']}"
-    puts "SSH_AUTH_SOCK = #{ENV['SSH_AUTH_SOCK']}"
-  end
-  def add_certificate(certificates=["#{ENV_HOME}/.ssh/id_rsa"])
-    certificates.each do |certificate|
-      certificate_added?(certificate) ? puts("certificate #{certificate} already added") : syscall_sshadd(certificate)
-    end
-    list_certificates
-  end
 
-  def test(test=nil)
-    certificates_list_empty?
-  end
+def initialize
+  x__load_modules([:standard])
+  abort unless check_agent
+end
 
-  private
+def add(certificate)
+end
 
-  ENV_HOME = ENV['HOME']
-  def check_agent
-    ENV['SSH_AGENT_PID'] ? true : abort("#{USAGE}no active agent detected, run:\nssh-agent bash\n\n")
+def list_certificates
+  puts "\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+  puts "~~  certificates for current ssh-agent                    ~~"
+  puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+  puts syscall_certificates_list
+  puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\n"
+end
+
+def agent_infos
+  puts "SSH_AGENT_PID = #{ENV['SSH_AGENT_PID']}"
+  puts "SSH_AUTH_SOCK = #{ENV['SSH_AUTH_SOCK']}"
+end
+
+def add_certificate(certificates=["#{ENV_HOME}/.ssh/id_rsa"])
+  certificates.each do |certificate|
+    certificate_added?(certificate) ? puts("certificate #{certificate} already added") : syscall_sshadd(certificate)
   end
-  def syscall_certificates_list
-    `ssh-add -l`.split("\n")
+  list_certificates
+end
+
+def test(test=nil)
+  certificates_list_empty?
+end
+
+private
+
+ENV_HOME = ENV['HOME']
+
+def check_agent
+  ENV['SSH_AGENT_PID'] ? true : abort("#{USAGE}no active agent detected, run:\nssh-agent bash\n\n")
+end
+
+def syscall_certificates_list
+  `ssh-add -l`.split("\n")
+end
+
+def syscall_sshadd(certificate)
+  system "ssh-add #{certificate}"
+end
+
+def certificate_added?(certificate_file)
+  abort unless check_agent
+  certificate_present = nil
+  syscall_certificates_list.each do |certificate_line|
+    strength, hash, file, protocol = certificate_line.split
+    (certificate_present = true) if (file == certificate_file)
   end
-  def syscall_sshadd(certificate)
-    system "ssh-add #{certificate}"
-  end
-  def certificate_added?(certificate_file)
-    abort unless check_agent
-    certificate_present = nil
-    syscall_certificates_list.each do |certificate_line|
-      strength, hash, file, protocol = certificate_line.split
-      (certificate_present = true) if (file == certificate_file)
-    end
-    certificate_present.nil? ? false : true
-  end
-  def certificates_list_empty?(certificate_list=syscall_certificates_list)
-    puts certificate_list.join
-    #NO_IDENTITIES = 'The agent has no identities.'
-    #TODO
-  end
+  certificate_present.nil? ? false : true
+end
+
+def certificates_list_empty?(certificate_list=syscall_certificates_list)
+  puts certificate_list.join
+  #NO_IDENTITIES = 'The agent has no identities.'
+  #TODO
+end
 end
 
 end end end

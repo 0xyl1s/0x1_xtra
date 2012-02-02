@@ -3,12 +3,12 @@
 # tested with ruby 1.9.3
 
 module X module Users module Utils
+require_relative '../../0x1_lib.helper.rb'
 
 class Todo
-require '0x1/lib/toolkit/standard.rb'
-include X::Lib::Toolkit::Standard
 
 def initialize
+  x__load_modules([:standard])
   @user_todo_basedir=File.expand_path('~/_/00todo')
   abort "ERROR: can't access user's todo directory (#{@user_todo_basedir})" unless x__is_a_dir?(@user_todo_basedir)
 end

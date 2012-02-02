@@ -1,12 +1,23 @@
 # encoding: utf-8
 # tested with ruby 1.9.3
 
-x_lib_path = File.join(File.expand_path('~'), '.0x1/00mu/00sourcing/0x1_lib')
+X_LIB_PATH = File.join(File.expand_path('~'), '.0x1/00mu/00sourcing/0x1_lib')
 
-# loading 0x1 standard lib
-require_relative "#{x_lib_path}/0x1/lib/toolkit/standard.rb"
-include X::Lib::Toolkit::Standard
-
+def x__load_modules(x__modules2load)
+  abort "XERROR: x__modules2load must be an arry (#{x__modules2load.class})" unless x__modules2load.is_a?(Array)
+  x__modules2load.each do |module2load|
+    case module2load
+    when :standard
+      require_relative "#{X_LIB_PATH}/0x1/lib/toolkit/standard.rb"
+      extend X::Lib::Toolkit::Standard
+    when :online
+      require_relative "#{X_LIB_PATH}/0x1/lib/toolkit/online.rb"
+      extend X::Lib::Toolkit::Online
+    else
+      abort "XERROR: module2load: no such module as #{module2load}"
+    end
+  end
+end
 
 # ____________________________________________________________________
 # >>>>>  projet epiculture/ec1   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>#{{{
