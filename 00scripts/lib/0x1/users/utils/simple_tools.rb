@@ -22,6 +22,14 @@ end
 
 end
 
+class Datetime
+
+def initialize
+  x__load_modules([:standard])
+  puts x__datetime
+end
+
+end
 
 end end end
 
