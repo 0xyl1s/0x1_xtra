@@ -3,21 +3,22 @@
 # tested with ruby 1.9.3
 
 module X module Users module Utils
-require_relative '../lib/0x1/users/utils/simple_tools.rb'
+  require_relative '../lib/0x1/users/utils/simple_tools.rb'
 
-#system "firefox &" if ARGV.empty?
+  #system "firefox &" if ARGV.empty?
 
 
-case ARGV.size
-when 0
-  number_of_characters = nil
-when 1
-  number_of_characters = ARGV.join
-else
-  abort "ERROR: too many arguments, please only provide the number of characters contained on the generated random string."
-end
+  case ARGV.size
+  when 0
+    number_of_characters = nil
+  when 1
+    number_of_characters = ARGV.join
+  else
+    abort("ERROR: too many arguments, please only provide the number of "+
+          "characters contained on the generated random string.")
+  end
 
-RandomString.new(number_of_characters, true)
+  RandomString.new(number_of_characters, true)
 
 
 end end end
