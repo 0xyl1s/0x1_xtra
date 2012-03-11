@@ -33,6 +33,14 @@ module X module Users module Utils
 
   end
 
+  class SymlinksFind
+    def initialize(basedir)
+      unless x__is_a_dir?(basedir)
+        abort "XERROR: basedir is not a dir (#{basedir})"
+      end
+    end
+  end
+
 end end end
 
 
