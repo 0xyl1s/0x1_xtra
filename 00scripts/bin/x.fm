@@ -16,7 +16,7 @@ module X module Users module Utils
     abort "ERROR: please specify a valid single directory"
   end
 
-  system("urxvt -geometry 153x53+193+73 -e ranger #{directory}")
+  system("urxvt -geometry 163x53+193+73 -e ranger #{directory}")
 
 end end end
 
