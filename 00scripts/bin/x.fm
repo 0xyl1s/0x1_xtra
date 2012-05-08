@@ -2,7 +2,7 @@
 # encoding: utf-8
 # tested with ruby 1.9.3
 
-module X module Users module Utils
+module X module Users
   require_relative '../lib/0x1/0x1_lib.helper.rb'
   x__load_modules([:standard])
 
@@ -18,7 +18,7 @@ module X module Users module Utils
 
   system("urxvt -geometry 163x53+193+73 -e ranger #{directory}")
 
-end end end
+end end
 
 # ____________________________________________________________________
 # >>>>>  projet epiculture/ec1   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>#{{{

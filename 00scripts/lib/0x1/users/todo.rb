@@ -2,8 +2,8 @@
 # encoding: utf-8
 # tested with ruby 1.9.3
 
-module X module Users module Utils
-require_relative '../../0x1_lib.helper.rb'
+module X module Users
+require_relative '../0x1_lib.helper.rb'
 
 class Todo
 
@@ -37,7 +37,7 @@ end
 
 end
 
-end end end
+end end
 
 
 # ____________________________________________________________________

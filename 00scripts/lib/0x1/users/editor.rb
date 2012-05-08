@@ -1,25 +1,27 @@
-#!/usr/bin/env ruby
 # encoding: utf-8
 # tested with ruby 1.9.3
 
 module X module Users
-  require_relative '../lib/0x1/users/random_string.rb'
+require_relative '../0x1_lib.helper.rb'
 
-  #system "firefox &" if ARGV.empty?
+class Editor
 
+def initialize
+  x__load_modules([:standard])
+  @x_user_editor=x__file_read(File.expand_path'~/.0x1/00mu/00data/editor').chomp
+end
 
-  case ARGV.size
-  when 0
-    number_of_characters = nil
-  when 1
-    number_of_characters = ARGV.join
+def edit(e_file=nil)
+  print "editing #{e_file} : "
+  if x__is_a_file?("#{e_file}.0x1microsynched")
+    puts "ABORTED (#{e_file} is microsynched => #{e_file}.0x1microsynched)"
   else
-    abort("ERROR: too many arguments, please only provide the number of "+
-          "characters contained on the generated random string.")
+    system "#{@x_user_editor} #{e_file}"
+    puts "OK"
   end
+end
 
-  RandomString.new(number_of_characters, true)
-
+end
 
 end end
 

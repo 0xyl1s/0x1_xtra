@@ -1,29 +1,19 @@
 # encoding: utf-8
 # tested with ruby 1.9.3
 
-module X module Users module Utils
-require_relative '../../0x1_lib.helper.rb'
+module X module Users
+  require_relative '../0x1_lib.helper.rb'
 
-class Editor
+  class Datetime
 
-def initialize
-  x__load_modules([:standard])
-  @x_user_editor=x__file_read(File.expand_path'~/.0x1/00mu/00data/editor').chomp
-end
+    def initialize
+      x__load_modules([:standard])
+      puts x__datetime
+    end
 
-def edit(e_file=nil)
-  print "editing #{e_file} : "
-  if x__is_a_file?("#{e_file}.0x1microsynched")
-    puts "ABORTED (#{e_file} is microsynched => #{e_file}.0x1microsynched)"
-  else
-    system "#{@x_user_editor} #{e_file}"
-    puts "OK"
   end
-end
 
-end
-
-end end end
+end end
 
 
 # ____________________________________________________________________

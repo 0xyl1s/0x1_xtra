@@ -2,9 +2,9 @@
 # encoding: utf-8
 # tested with ruby 1.9.3
 
-require_relative "../lib/0x1/users/utils/editor.rb"
+require_relative "../lib/0x1/users/editor.rb"
 
-module X module Users module Utils
+module X module Users
 
 
 case ARGV.size
@@ -17,7 +17,7 @@ case ARGV.size
 end
 
 
-end end end
+end end
 
 
 # ____________________________________________________________________
