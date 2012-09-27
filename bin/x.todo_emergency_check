@@ -2,26 +2,13 @@
 # encoding: utf-8
 # tested with ruby 1.9.3
 
-module X module Users
-  require_relative '../lib/0x1/users/random_string.rb'
 
-  #system "firefox &" if ARGV.empty?
+module X module Xtra module Users
+  require_relative "../lib/0x1_xtra/users/todo.rb"
 
+  Emergency.new.check
 
-  case ARGV.size
-  when 0
-    number_of_characters = nil
-  when 1
-    number_of_characters = ARGV.join
-  else
-    abort("ERROR: too many arguments, please only provide the number of "+
-          "characters contained on the generated random string.")
-  end
-
-  RandomString.new(number_of_characters, true)
-
-
-end end
+end end end
 
 
 # ____________________________________________________________________

@@ -2,10 +2,18 @@
 # encoding: utf-8
 # tested with ruby 1.9.3
 
-module X module Users
-  require_relative "../lib/0x1/users/symlinks_batch_retarget.rb"
 
-  SymlinksFind.new
+module X module Users
+  require_relative "../lib/0x1_xtra/users/symlinks_batch_retarget.rb"
+
+  sbr = SymlinksBatchRetarget.new ARGV
+
+  begin
+    sbr.run
+  rescue => e
+    STDERR.puts e.message
+    exit 1
+  end
 
 end end
 

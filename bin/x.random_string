@@ -1,19 +1,27 @@
+#!/usr/bin/env ruby
 # encoding: utf-8
 # tested with ruby 1.9.3
 
-module X module Users
-  require_relative '../0x1_lib.helper.rb'
+module X module Xtra module Users
+  require_relative '../lib/0x1_xtra/users/random_string.rb'
 
-  class Datetime
+  #system "firefox &" if ARGV.empty?
 
-    def initialize
-      x__load_modules([:standard])
-      puts x__datetime
-    end
 
+  case ARGV.size
+  when 0
+    number_of_characters = nil
+  when 1
+    number_of_characters = ARGV.join
+  else
+    abort("ERROR: too many arguments, please only provide the number of "+
+          "characters contained on the generated random string.")
   end
 
-end end
+  RandomString.new(number_of_characters, true)
+
+
+end end end
 
 
 # ____________________________________________________________________

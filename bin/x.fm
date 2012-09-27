@@ -1,0 +1,33 @@
+#!/usr/bin/env ruby
+# encoding: utf-8
+# tested with ruby 1.9.3
+
+module X module Xtra module Users
+  require_relative '../lib/0x1_xtra/0x1_lib.helper.rb'
+  extend X::Lib::Toolkit::Standard
+  @x_lib_path_base = X_LIB_PATH_BASE
+  x__lib_load_modules([:standard])
+
+  case ARGV.size
+  when 1
+    directory = ARGV.join
+    unless x__is_a_dir?(directory)
+      abort "E: #{directory} is not a valid directory"
+    end
+  else
+    abort "ERROR: please specify a valid single directory"
+  end
+
+  system("urxvt -geometry 163x53+193+73 -e ranger #{directory}")
+
+end end end
+
+# ____________________________________________________________________
+# >>>>>  projet epiculture/ec1   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>#{{{
+# Sources, Infos & Contact : http://www.epiculture.org
+# Author: Pierre-Maël Crétinon
+# License: GNU GPLv3 ( www.epiculture.org/ec1/LICENSE )
+# Copyright: 2010-2012 Pierre-Maël Crétinon
+# Sponsor: studio Helianova - http://studio.helianova.com
+# ――――――――――――――――――――――――――――――――――――――#}}}
+# vim: ft=ruby

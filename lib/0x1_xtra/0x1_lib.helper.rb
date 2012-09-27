@@ -1,22 +1,10 @@
-#!/usr/bin/env ruby
 # encoding: utf-8
 # tested with ruby 1.9.3
 
-module X module Users
-  require_relative '../lib/0x1/0x1_lib.helper.rb'
-  x__load_modules([:standard])
+module X module Xtra
+  X_LIB_PATH_BASE = ".0x1/00mu/00sourcing/0x1_lib"
 
-  case ARGV.size
-  when 1
-    directory = ARGV.join
-    unless x__is_a_dir?(directory)
-      abort "E: #{directory} is not a valid directory"
-    end
-  else
-    abort "ERROR: please specify a valid single directory"
-  end
-
-  system("urxvt -geometry 163x53+193+73 -e ranger #{directory}")
+  require "#{Dir.home}/.0x1/00mu/00sourcing/0x1_lib/lib/0x1_lib/toolkit/standard.rb"
 
 end end
 

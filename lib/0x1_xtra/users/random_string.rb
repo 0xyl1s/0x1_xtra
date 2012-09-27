@@ -1,13 +1,15 @@
 # encoding: utf-8
 # tested with ruby 1.9.3
 
-module X module Users
+module X module Xtra module Users
   require_relative '../0x1_lib.helper.rb'
 
   class RandomString
+    include X::Lib::Toolkit::Standard
 
     def initialize(i_length_raw=nil, b_lowercase=false)
-      x__load_modules([:standard])
+      @x_lib_path_base = X_LIB_PATH_BASE
+      x__lib_load_modules([:standard])
       if i_length_raw.nil? or x__is_a_blank_string?(i_length_raw)
         i_length = 13
       elsif x__is_an_integer?(i_length_raw)
@@ -24,7 +26,7 @@ module X module Users
 
   end
 
-end end
+end end end
 
 
 # ____________________________________________________________________
