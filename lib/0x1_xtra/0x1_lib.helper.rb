@@ -4,7 +4,7 @@
 module X module Xtra
   X_LIB_PATH_BASE = ".0x1/00mu/00sourcing/0x1_lib"
 
-  require "#{Dir.home}/.0x1/00mu/00sourcing/0x1_lib/lib/0x1_lib/toolkit/standard.rb"
+  require "#{Dir.home}/.0x1/00mu/00sourcing/0x1_lib/lib/0x1_lib/ruby/toolkit/standard.rb"
 
 end end
 
